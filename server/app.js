@@ -3,8 +3,8 @@ const app = express()
 const port = 80
 // const RecordManager = require('./recordManager')
 const bodyParser = require('body-parser')
-// const { exec } = require('child_process')
-const childProcess = require('child_process');
+const { exec } = require('child_process')
+// const childProcess = require('child_process');
 
 app.use(bodyParser.json());
 
