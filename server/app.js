@@ -23,7 +23,7 @@ app.post('/recorder/v1/start', (req, res, next) => {
     const process = childProcess.spawn('/home/oshima/withlive-agora-recording/samples/cpp/recorder_local', ['--appId', appid, '--uid',  0,  '--channel', channel,  '--recordFileRootDir',  '/home/oshima/withlive-agora-recording/server/output',  '--appliteDir', '/home/oshima/withlive-agora-recording/bin', '--idle=10', '--isMixingEnabled=1', '--layoutMode=1'])
     process.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`)
-        res.status(200).json({
+        res.json({
             success: true
         })
     })
