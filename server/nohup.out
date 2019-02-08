@@ -1,0 +1,42 @@
+setting mix layout...
+joinChannel...
+appliteDir /home/oshima/Agora-Restful-Recording-Nodejs_jimmy/record/src/sdk/bin/
+pRecording->m_agorasdk->createChannel return result:1
+join channel Id: abc, with uid: 1778932625
+recorder started f5e50500ef5f47fab9f959f6c921e939 abc 3ddc7f22-692b-475c-8124-41924d50931f
+User 2590139480 joined, RecordingDir:/home/oshima/Agora-Restful-Recording-Nodejs_jimmy/server/output/abc/3ddc7f22-692b-475c-8124-41924d50931f/
+user join 2590139480
+setting mix layout...
+color: #00ff00
+leave channel with code:12
+Error: 3,with stat_code:16
+sdk stopped due to err code: 3 stat: 16
+stop recorder f5e50500ef5f47fab9f959f6c921e939 abc 3ddc7f22-692b-475c-8124-41924d50931f
+setting mix layout...
+joinChannel...
+appliteDir /home/oshima/Agora-Restful-Recording-Nodejs_jimmy/record/src/sdk/bin/
+pRecording->m_agorasdk->createChannel return result:1
+join channel Id: abc, with uid: 2159603091
+recorder started f5e50500ef5f47fab9f959f6c921e939 abc 7d74c3b8-a59f-4dc0-8d91-0d48743e1e17
+User 3568255639 joined, RecordingDir:/home/oshima/Agora-Restful-Recording-Nodejs_jimmy/server/output/abc/7d74c3b8-a59f-4dc0-8d91-0d48743e1e17/
+user join 3568255639
+setting mix layout...
+color: #00ff00
+User 685106927 joined, RecordingDir:/home/oshima/Agora-Restful-Recording-Nodejs_jimmy/server/output/abc/7d74c3b8-a59f-4dc0-8d91-0d48743e1e17/
+color: #00ff00
+user join 685106927
+setting mix layout...
+color: #00ff00
+User 685106927 offline, reason: 0
+color: #00ff00
+user leave 685106927
+setting mix layout...
+color: #00ff00
+User 3568255639 offline, reason: 0
+color: #00ff00
+user leave 3568255639
+setting mix layout...
+leave channel with code:12
+Error: 3,with stat_code:16
+sdk stopped due to err code: 3 stat: 16
+stop recorder f5e50500ef5f47fab9f959f6c921e939 abc 7d74c3b8-a59f-4dc0-8d91-0d48743e1e17
