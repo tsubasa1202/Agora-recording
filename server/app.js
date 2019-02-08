@@ -17,7 +17,7 @@ app.post('/recorder/v1/start', (req, res, next) => {
         throw new Error("channel is mandatory");
     }
     
-    const recordStartCommand = `./recorder_local --appId ${appid}  --uid 0 --channel ${channel}  --recordFileRootDir ~/withlive-agora-recording/server/output --appliteDir  ~/withlive-agora-recording/bin  --idle=10 --isMixingEnabled=1 --layoutMode=1`
+    const recordStartCommand = `./recorder_local --appId ${appid} --uid 0 --channel ${channel} --recordFileRootDir ~/withlive-agora-recording/server/output --appliteDir  ~/withlive-agora-recording/bin  --idle=10 --isMixingEnabled=1 --layoutMode=1`
     exec(recordStartCommand, (error, stdout, stderr) => {
         if (error || stderr) {
             const err = error ? error : stderr
@@ -46,6 +46,7 @@ app.post('/recorder/v1/start', (req, res, next) => {
     */
 })
 
+/*
 app.post('/recorder/v1/stop', (req, res, next) => {
     let { body } = req;
     let { sid } = body;
@@ -53,13 +54,12 @@ app.post('/recorder/v1/stop', (req, res, next) => {
         throw new Error("sid is mandatory");
     }
 
-    /*
     RecordManager.stop(sid);
     res.status(200).json({
         success: true
     });
-    */
 })
+*/
 
 app.use( (err, req, res, next) => {
     console.error(err.stack)
