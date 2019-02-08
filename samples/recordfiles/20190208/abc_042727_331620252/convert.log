@@ -1,0 +1,20 @@
+/bin/sh: ffmpeg: command not found
+/bin/sh: ffmpeg: command not found
+Offset_time : 0
+UID:0_20190208042729529
+DEBUG:False:['0.000 0_20190208042729529.aac create \n', '0.301 0_20190208042729830.mp4 create \n', '0.301 0_20190208042729830.mp4 info width=360 height=640 rotation=0\n', '23.358 0_20190208042729830.mp4 close \n', '23.359 0_20190208042729529.aac close \n']
+Audio Clip: : start_time=0.000, end_time=0.000
+Audio Clip 0: 0_20190208042729529.aac: start_time=0.000, end_time=23.359
+Video Clip 0: 0_20190208042729830.mp4: start_time=0.301, end_time=23.358, width=360, height=640
+Generate Audio File
+==============================audio ffmpeg=====================================
+ffmpeg -f lavfi -t 0.001 -i anullsrc=channel_layout=mono:sample_rate=48000 -i 0_20190208042729529.aac -filter_complex "concat=n=2:v=0:a=1[audio]"  -map "[audio]" -to 23.359000 -y 0_20190208042729529_tmp.m4a 2>&1 | tee -a convert.log
+ffmpeg -f lavfi -t 0.001 -i anullsrc=channel_layout=mono:sample_rate=48000 -i 0_20190208042729529.aac -filter_complex "concat=n=2:v=0:a=1[audio]"  -map "[audio]" -to 23.359000 -y 0_20190208042729529_tmp.m4a 2>&1 | tee -a convert.log
+Generate MP4 file:
+Output resolution: (360, 640)
+=================================video ffmpeg ========================
+ffmpeg -i 0_20190208042729529_tmp.m4a -f lavfi -i "color=black:s=360x640:r=15" -i 0_20190208042729830.mp4 -filter_complex "[2]scale=360x640,setpts=PTS-STARTPTS+0.301/TB[scale2];[1][scale2]overlay=eof_action=pass[video]"  -map 0:a:0 -map "[video]" -c:a copy -c:v libx264 -r 15 -preset veryfast -shortest -to 23.359000 -y 0_20190208042729529_av.mp4 2>&1 | tee -a convert.log
+ffmpeg -i 0_20190208042729529_tmp.m4a -f lavfi -i "color=black:s=360x640:r=15" -i 0_20190208042729830.mp4 -filter_complex "[2]scale=360x640,setpts=PTS-STARTPTS+0.301/TB[scale2];[1][scale2]overlay=eof_action=pass[video]"  -map 0:a:0 -map "[video]" -c:a copy -c:v libx264 -r 15 -preset veryfast -shortest -to 23.359000 -y 0_20190208042729529_av.mp4 2>&1 | tee -a convert.log
+
+
+
