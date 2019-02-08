@@ -26,14 +26,14 @@ app.post('/recorder/v1/start', (req, res, next) => {
     '/home/oshima/withlive-agora-recording/bin', '--idle=10', '--isMixingEnabled=1', '--layoutMode=1'], (error, stdout, stderr) => {
         
         if (error) {
-            console.error("stderr", stderr)
+            // console.error("stderr", stderr)
             return res.status(500).json({
                 success: false,
                 pid: process.pid
             })
         }
-        console.log(stdout);
-        console.log("pid: " +process.pid)
+        // console.log(stdout);
+        // console.log("pid: " +process.pid)
         return res.status(200).json({
             success: true,
             pid: process.pid
