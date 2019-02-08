@@ -20,26 +20,24 @@ app.post('/recorder/v1/start', (req, res, next) => {
     }
     
     // const recordStartCommand = `/home/oshima/withlive-agora-recording/samples/cpp/recorder_local --appId ${appid} --uid 0 --channel ${channel} --recordFileRootDir /home/oshima/withlive-agora-recording/server/output --appliteDir  /home/oshima/withlive-agora-recording/bin  --idle=10 --isMixingEnabled=1 --layoutMode=1 &`
-    const process = childProcess.spawn('/home/oshima/withlive-agora-recording/samples/cpp/recorder_local', ['--appId', appid, '--uid',  0,  '--channel', channel,  '--recordFileRootDir',  '/home/oshima/withlive-agora-recording/server/output',  '--appliteDir', '/home/oshima/withlive-agora-recording/bin', '--idle=10', '--isMixingEnabled=1', '--layoutMode=1'])
-    process.stdout.on('data', (data) => {
-        console.log(`stdout: ${data}`)
+    const process = childProcess.execFile('/home/oshima/withlive-agora-recording/samples/cpp/recorder_local', 
+    ['--appId',appid, '--uid',  0,  '--channel', channel,  '--recordFileRootDir',
+    '/home/oshima/withlive-agora-recording/server/output',  '--appliteDir',
+    '/home/oshima/withlive-agora-recording/bin', '--idle=10', '--isMixingEnabled=1', '--layoutMode=1'], (error, stdout, stderr) => {
+        
+        if (error) {
+            console.error("stderr", stderr)
+            return res.status(500).json({
+                success: false,
+                pid: process.pid
+            })
+        }
+        console.log(stdout);
+        console.log("pid: " +process.pid)
         res.status(200).json({
-            success: true
+            success: true,
+            pid: process.pid
         })
-        return
-    })
-      
-    process.stderr.on('data', (data) => {
-        console.log(`stderr: ${data}`)
-        /*
-        res.status(500).json({
-            success: false
-        })
-        */
-    })
-    
-    process.on('close', (code) => {
-        console.log(`child process exited with code ${code}`)
     })
     
     /*
