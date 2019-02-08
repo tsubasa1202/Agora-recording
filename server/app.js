@@ -17,7 +17,7 @@ app.post('/recorder/v1/start', (req, res, next) => {
         throw new Error("channel is mandatory");
     }
     
-    const recordStartCommand = `./recorder_local --appId ${appid} --uid 0 --channel ${channel} --recordFileRootDir ~/withlive-agora-recording/server/output --appliteDir  ~/withlive-agora-recording/bin  --idle=10 --isMixingEnabled=1 --layoutMode=1`
+    const recordStartCommand = `~/withlive-agora-recording/samples/cpp/recorder_local --appId ${appid} --uid 0 --channel ${channel} --recordFileRootDir ~/withlive-agora-recording/server/output --appliteDir  ~/withlive-agora-recording/bin  --idle=10 --isMixingEnabled=1 --layoutMode=1`
     exec(recordStartCommand, (error, stdout, stderr) => {
         if (error || stderr) {
             const err = error ? error : stderr
