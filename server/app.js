@@ -23,7 +23,7 @@ app.post('/recorder/v1/start', (req, res, next) => {
     const process = childProcess.execFile('/home/oshima/withlive-agora-recording/samples/cpp/recorder_local', 
     ['--appId',appid, '--uid',  0,  '--channel', channel,  '--recordFileRootDir',
     '/home/oshima/withlive-agora-recording/server/output',  '--appliteDir',
-    '/home/oshima/withlive-agora-recording/bin', '--idle=10', '--isMixingEnabled=1', '--layoutMode=1'], (error, stdout, stderr) => {
+    '/home/oshima/withlive-agora-recording/bin', '--idle=10', '--isMixingEnabled=1', '--layoutMode=1', '&'], (error, stdout, stderr) => {
         
         if (error) {
             // console.error("stderr", stderr)
