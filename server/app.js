@@ -34,7 +34,7 @@ app.post('/recorder/v1/start', (req, res, next) => {
         }
         console.log(stdout);
         console.log("pid: " +process.pid)
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             pid: process.pid
         })
