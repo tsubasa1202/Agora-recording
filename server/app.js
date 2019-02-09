@@ -24,12 +24,12 @@ app.post('/recorder/v1/start', (req, res, next) => {
     
         process.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`)
-            if(String(data).match(`/join channel Id: ${channel}/`)){
+            // if(String(data).match(`/join channel Id: ${channel}/`)){
                 res.status(200).json({
                     success: true,
                     message: String(data)
                 })
-            }
+            // }
         })
         
         let errorFlag = true
