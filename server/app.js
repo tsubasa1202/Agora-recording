@@ -24,10 +24,10 @@ app.post('/recorder/v1/start', (req, res, next) => {
     
         process.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`)
-            if(data === `join channel Id: ${channel}`){
+            if(String(data) === `join channel Id: ${channel}`){
                 res.status(200).json({
                     success: true,
-                    message: data
+                    message: String(data)
                 })
             }
         })
@@ -35,11 +35,11 @@ app.post('/recorder/v1/start', (req, res, next) => {
         let errorFlag = true
         process.stderr.on('data', (data) => {
             console.log(`stderr: ${data}`)
-            if(errorFlag && data !== 'recorder_local[30691]: (30691) /var/lib/jenkins/workspace/agora-release-linux-2/ServerSDK-Video/src/rec_engine/RecordingEngineImpl.cpp:533'){
+            if(errorFlag && String(data) !== 'recorder_local[30691]: (30691) /var/lib/jenkins/workspace/agora-release-linux-2/ServerSDK-Video/src/rec_engine/RecordingEngineImpl.cpp:533'){
                 errorFlag = false
             res.status(500).json({
                 success: false,
-                error: data
+                error: String(data)
             })
         }
         })
