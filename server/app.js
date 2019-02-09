@@ -7,8 +7,12 @@ const bodyParser = require('body-parser')
 const childProcess = require('child_process')
 const log4js = require('log4js')
 log4js.configure({
-  appenders: { cheese: { type: 'file', filename: 'access.log' } },
-  categories: { default: { appenders: ['access'], level: 'info' } }
+    appenders: {
+        system: {type: 'file', filename: 'system.log'}
+    },
+    categories: {
+        default: {appenders:['system'], level: 'debug'}
+    }
 });
 
 app.use(bodyParser.json());
