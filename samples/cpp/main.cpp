@@ -219,7 +219,7 @@ int main(int argc, char * const argv[]) {
     return -1;
   }
 
-  cout << "Recording directory is " << recorder.getRecorderProperties()->storageDir << endl;
+  // cout << "Recording directory is " << recorder.getRecorderProperties()->storageDir << endl;
   recorder.updateStorageDir(recorder.getRecorderProperties()->storageDir);
   
   while (!recorder.stopped() && !g_bSignalStop) {

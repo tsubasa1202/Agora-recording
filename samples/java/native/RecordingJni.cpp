@@ -1382,7 +1382,7 @@ JNIEXPORT jboolean JNICALL Java_io_agora_recording_RecordingSDK_createChannel(JN
   env->CallIntMethod(thisObj, jmid, nativeObjectRef);
   CHECK_EXCEPTION(env, "");
   std::string recordingDir = jniRecorder.getRecorderProperties()->storageDir;
-  cout<<"Recording directory is "<<jniRecorder.getRecorderProperties()->storageDir<<endl;
+  // cout<<"Recording directory is "<<jniRecorder.getRecorderProperties()->storageDir<<endl;
   jniRecorder.setJavaRecordingPath(env, recordingDir);
   while (!jniRecorder.stopped()) {
     usleep(1*1000*1000); //1s
