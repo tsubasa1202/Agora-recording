@@ -342,7 +342,7 @@ void AgoraSdk::adjustDefaultVideoLayout(agora::linuxsdk::VideoMixingLayout::Regi
     regionList[0].height = 1.f;
     regionList[0].zOrder = 0;
     regionList[0].alpha = 1.f;
-    regionList[0].renderMode = 0;
+    regionList[0].renderMode = 2;
 
     CM_LOG_DIR(m_logdir.c_str(), INFO, "region 0 uid: %u, x: %f, y: %f, width: %f, height: %f, zOrder: %d, alpha: %f", regionList[0].uid, regionList[0].x, regionList[0].y, regionList[0].width, regionList[0].height, regionList[0].zOrder, regionList[0].alpha);
 
@@ -367,7 +367,7 @@ void AgoraSdk::adjustDefaultVideoLayout(agora::linuxsdk::VideoMixingLayout::Regi
         regionList[i].height = viewHeight;
         regionList[i].zOrder = 0;
         regionList[i].alpha = static_cast<double>(i + 1);
-        regionList[i].renderMode = 0;
+        regionList[i].renderMode = 2;
     }
 }
 
@@ -425,7 +425,7 @@ void AgoraSdk::adjustVideo5Layout(unsigned int maxResolutionUid, agora::linuxsdk
         regionList[number].height = 1.f * (0.25);
         regionList[number].zOrder = 0;
         regionList[number].alpha = static_cast<double>(number);
-        regionList[number].renderMode = 0;
+        regionList[number].renderMode = 2;
         number++;
         if(i == 4 && !flag){
             changeToVideo7Layout(maxResolutionUid, regionList);
@@ -463,7 +463,7 @@ void AgoraSdk::adjustVideo7Layout(unsigned int maxResolutionUid, agora::linuxsdk
         regionList[number].height = (1.f/6);
         regionList[number].zOrder = 0;
         regionList[number].alpha = static_cast<double>(number);
-        regionList[number].renderMode = 0;
+        regionList[number].renderMode = 2;
         number++;
         if(i == 6 && !flag){
             changeToVideo9Layout(maxResolutionUid, regionList);
@@ -501,7 +501,7 @@ void AgoraSdk::adjustVideo9Layout(unsigned int maxResolutionUid, agora::linuxsdk
         regionList[number].height = 1.f/8;
         regionList[number].zOrder = 0;
         regionList[number].alpha = static_cast<double>(number);
-        regionList[number].renderMode = 0;
+        regionList[number].renderMode = 2;
         number++;
         if(i == 8 && !flag){
             changeToVideo17Layout(maxResolutionUid, regionList);
@@ -541,7 +541,7 @@ void AgoraSdk::adjustVideo17Layout(unsigned int maxResolutionUid, agora::linuxsd
         regionList[number].height = 1.f/8;
         regionList[number].zOrder = 0;
         regionList[number].alpha = static_cast<double>(number);
-        regionList[number].renderMode = 0;
+        regionList[number].renderMode = 2;
         number++;
     }
 }
@@ -575,7 +575,7 @@ void AgoraSdk::adjustBestFitLayout_2(agora::linuxsdk::VideoMixingLayout::Region 
         regionList[i].height = 1.f;
         regionList[i].zOrder = 0;
         regionList[i].alpha = static_cast<double>(i+1);
-        regionList[i].renderMode = 0;
+        regionList[i].renderMode = 2;
     }
 }
 void AgoraSdk::adjustBestFitLayout_Square(agora::linuxsdk::VideoMixingLayout::Region * regionList, int nSquare) {
@@ -596,7 +596,7 @@ void AgoraSdk::adjustBestFitLayout_Square(agora::linuxsdk::VideoMixingLayout::Re
         regionList[i].height = viewHEdge;
         regionList[i].zOrder = 0;
         regionList[i].alpha = static_cast<double>(i+1);
-        regionList[i].renderMode = 0;
+        regionList[i].renderMode = 2;
     }
 }
 void AgoraSdk::adjustBestFitLayout_17(agora::linuxsdk::VideoMixingLayout::Region * regionList) {
@@ -617,7 +617,7 @@ void AgoraSdk::adjustBestFitLayout_17(agora::linuxsdk::VideoMixingLayout::Region
         regionList[i].height = viewHEdge;
         regionList[i].zOrder = 0;
         regionList[i].alpha = static_cast<double>(i+1);
-        regionList[i].renderMode = 0;
+        regionList[i].renderMode = 2;
         if(i == 16) {
             regionList[i].x = (1-viewWidth)*(1.f/2) * 1.f;
             CM_LOG_DIR(m_logdir.c_str(), INFO, "special layout for 17 x is:",regionList[i].x);
