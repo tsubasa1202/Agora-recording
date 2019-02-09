@@ -1,7 +1,7 @@
 node_modules
 nohup.out
 output/
-logs/
+access.log
 .DS_Store
 server/nohup.out
 recorder_local
