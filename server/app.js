@@ -14,6 +14,7 @@ log4js.configure({
         default: {appenders:['system'], level: 'debug'}
     }
 });
+const logger = log4js.getLogger()
 
 app.use(bodyParser.json());
 
