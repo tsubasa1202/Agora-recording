@@ -22,24 +22,24 @@ app.post('/recorder/v1/start', (req, res, next) => {
     // const recordStartCommand = `/home/oshima/withlive-agora-recording/samples/cpp/recorder_local --appId ${appid} --uid 0 --channel ${channel} --recordFileRootDir /home/oshima/withlive-agora-recording/server/output --appliteDir  /home/oshima/withlive-agora-recording/bin  --idle=10 --isMixingEnabled=1 --layoutMode=1 &`
     const process = childProcess.spawn('/home/oshima/withlive-agora-recording/samples/cpp/recorder_local', ['--appId', appid, '--uid',  0,  '--channel', channel,  '--recordFileRootDir',  '/home/oshima/withlive-agora-recording/server/output',  '--appliteDir', '/home/oshima/withlive-agora-recording/bin', '--idle=10', '--isMixingEnabled=1', '--layoutMode=1'])
     
-    let flag = true
         process.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`)
-            if(flag){
-                flag = false
+            if(data === `join channel Id: ${channel}`){
                 res.status(200).json({
                     success: true
                 })
             }
         })
         
+        let errorFlag = true
         process.stderr.on('data', (data) => {
             console.log(`stderr: ${data}`)
-            /*
+            if(errorFlag){
+                errorFlag = false
             res.status(500).json({
                 success: false
             })
-            */
+        }
         })
         
         process.on('close', (code) => {
