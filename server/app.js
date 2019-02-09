@@ -19,8 +19,8 @@ app.post('/recorder/v1/start', (req, res, next) => {
         throw new Error("channel is mandatory");
     }
     
-    // const recordStartCommand = `/home/oshima/withlive-agora-recording/samples/cpp/recorder_local --appId ${appid} --uid 0 --channel ${channel} --recordFileRootDir /home/oshima/withlive-agora-recording/server/output --appliteDir  /home/oshima/withlive-agora-recording/bin  --idle=10 --isMixingEnabled=1 --layoutMode=1 &`
-    const process = childProcess.spawn('/home/oshima/withlive-agora-recording/samples/cpp/recorder_local', ['--appId', appid, '--uid',  0,  '--channel', channel,  '--recordFileRootDir',  '/home/oshima/withlive-agora-recording/server/output',  '--appliteDir', '/home/oshima/withlive-agora-recording/bin', '--idle=10', '--isMixingEnabled=1', '--layoutMode=1'])
+    // const recordStartCommand = `/home/tsubasa/withlive-agora-recording/samples/cpp/recorder_local --appId ${appid} --uid 0 --channel ${channel} --recordFileRootDir /home/tsubasa/withlive-agora-recording/server/output --appliteDir  /home/tsubasa/withlive-agora-recording/bin  --idle=10 --isMixingEnabled=1 --layoutMode=1 &`
+    const process = childProcess.spawn('/home/tsubasa/withlive-agora-recording/samples/cpp/recorder_local', ['--appId', appid, '--uid',  0,  '--channel', channel,  '--recordFileRootDir',  '/home/tsubasa/withlive-agora-recording/server/output',  '--appliteDir', '/home/tsubasa/withlive-agora-recording/bin', '--idle=10', '--isMixingEnabled=1', '--layoutMode=1'])
     
         process.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`)
@@ -44,10 +44,10 @@ app.post('/recorder/v1/start', (req, res, next) => {
 
 
     /*
-    const process = childProcess.execFile('/home/oshima/withlive-agora-recording/samples/cpp/recorder_local', 
+    const process = childProcess.execFile('/home/tsubasa/withlive-agora-recording/samples/cpp/recorder_local', 
     ['--appId',appid, '--uid',  0,  '--channel', channel,  '--recordFileRootDir',
-    '/home/oshima/withlive-agora-recording/server/output',  '--appliteDir',
-    '/home/oshima/withlive-agora-recording/bin', '--idle=10', '--isMixingEnabled=1', '--layoutMode=1', '&'], (error, stdout, stderr) => {
+    '/home/tsubasa/withlive-agora-recording/server/output',  '--appliteDir',
+    '/home/tsubasa/withlive-agora-recording/bin', '--idle=10', '--isMixingEnabled=1', '--layoutMode=1', '&'], (error, stdout, stderr) => {
         
         if (error) {
             console.error("stderr", stderr)
