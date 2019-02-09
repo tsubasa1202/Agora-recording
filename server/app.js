@@ -36,7 +36,7 @@ app.post('/recorder/v1/start', (req, res, next) => {
         let errorFlag = true
         process.stderr.on('data', (data) => {
             console.log(`stderr: ${data}`)
-            const containFirstError = String(data).indexOf('recorder_local[30888]: (30888) /var/lib/jenkins/workspace/agora-release-linux-2/ServerSDK-Video/src/rec_engine/RecordingEngineImpl.cpp:533: [Wrapper version] c046fff075e90f3ac1d18116a236e2e994fadb2b') !== -1
+            const containFirstError = String(data).indexOf('/var/lib/jenkins/workspace/agora-release-linux-2/ServerSDK-Video/src/rec_engine/RecordingEngineImpl.cpp:533: [Wrapper version] c046fff075e90f3ac1d18116a236e2e994fadb2b') !== -1
             console.log(`containFirstError: ${containFirstError}`)
             if(errorFlag && !containFirstError){
                 errorFlag = false
