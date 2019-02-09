@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 80
+const port = 8080
 // const RecordManager = require('./recordManager')
 const bodyParser = require('body-parser')
 // const { exec } = require('child_process')
