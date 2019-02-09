@@ -1,6 +1,6 @@
 node_modules
 nohup.out
-output
+output/*/
 .DS_Store
 server/nohup.out
 recorder_local
