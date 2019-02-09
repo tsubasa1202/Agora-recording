@@ -8,7 +8,7 @@ const childProcess = require('child_process')
 const log4js = require('log4js')
 log4js.configure({
   appenders: { cheese: { type: 'file', filename: 'access.log' } },
-  categories: { default: { appenders: ['withlive'], level: 'info' } }
+  categories: { default: { appenders: ['access'], level: 'info' } }
 });
 
 app.use(bodyParser.json());
