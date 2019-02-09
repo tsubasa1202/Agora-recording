@@ -24,18 +24,20 @@ app.post('/recorder/v1/start', (req, res, next) => {
     
         process.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`)
-            // if(String(data).match(`/join channel Id: ${channel}/`)){
+            const containSuccessJoin = String(data).indexOf(`join channel Id: ${channel}`) !== -1
+            if(containSuccessJoin){
                 res.status(200).json({
                     success: true,
                     message: String(data)
                 })
-            // }
+            }
         })
         
         let errorFlag = true
         process.stderr.on('data', (data) => {
             console.log(`stderr: ${data}`)
-            if(errorFlag && String(data).match('/recorder_local[30888]: (30888) /var/lib/jenkins/workspace/agora-release-linux-2/ServerSDK-Video/src/rec_engine/RecordingEngineImpl.cpp:533: [Wrapper version] c046fff075e90f3ac1d18116a236e2e994fadb2b/')){
+            const notContainFirstError = String(data).indexOf('recorder_local[30888]: (30888) /var/lib/jenkins/workspace/agora-release-linux-2/ServerSDK-Video/src/rec_engine/RecordingEngineImpl.cpp:533: [Wrapper version] c046fff075e90f3ac1d18116a236e2e994fadb2b') === -1
+            if(errorFlag && notContainFirstError){
                 errorFlag = false
             res.status(500).json({
                 success: false,
