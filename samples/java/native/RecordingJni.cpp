@@ -1314,7 +1314,8 @@ JNIEXPORT jboolean JNICALL Java_io_agora_recording_RecordingSDK_createChannel(JN
   jniRecorder.initialize();
 
   config.idleLimitSec = idleLimitSec;
-  config.channelProfile = static_cast<agora::linuxsdk::CHANNEL_PROFILE_TYPE>(channelProfile);
+  // config.channelProfile = static_cast<agora::linuxsdk::CHANNEL_PROFILE_TYPE>(channelProfile);
+  config.channelProfile = agora::linuxsdk::CHANNEL_PROFILE_LIVE_BROADCASTING;
 
   config.isVideoOnly = isVideoOnly;
   config.isAudioOnly = isAudioOnly;
